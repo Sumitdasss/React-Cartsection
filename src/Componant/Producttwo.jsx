@@ -4,13 +4,16 @@ import { TfiReload } from "react-icons/tfi";
 import { CartContex } from '../Feature/CartProvider';
 
 
+
 const Producttwo = ({ Product }) => {
+
+ 
 
   const {dispatch}=useContext(CartContex)
   if (!Product) return null; 
 
   return (
-    
+ 
     <div className="max-w-[350px] group relative cursor-pointer mb-10">
       <div className="relative overflow-hidden ">
     <img 
@@ -51,6 +54,7 @@ const Producttwo = ({ Product }) => {
         </div>
       </div>
     </div>
+  
 
   );
 };

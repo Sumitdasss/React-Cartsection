@@ -4,8 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 
 export default defineConfig({
+  build:{
+    cssMinify:"esbuild"
+  },
   plugins: [
     react(),
-    tailwindcss(), 
+    tailwindcss()
   ],
 })
