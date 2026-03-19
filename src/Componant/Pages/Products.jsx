@@ -11,6 +11,7 @@ import Producttwo from '../Producttwo';
 
 
 const Products = () => {
+  const [dotActive, setDotActive] = useState(0);
 const [Product  ]=useState(Data.Product);
 
  const settings = {
@@ -24,30 +25,37 @@ const [Product  ]=useState(Data.Product);
   pauseOnHover: true,     
   cssEase: "linear",
 
-appendDots: (dots) => (
-    <div
-      style={{
+beforeChange: (prev, next) => {
+    setDotActive(next);
+  },
+
+  appendDots: (dots) => (
+    <div style={{
         position: "absolute",
-        top: "50%",      
-        left: "-60px",   
+        top: "50%",    
+        left: "-60px",  
         transform: "translateY(-50%)",
         width: "30px"
-      }}
-    >
-      <ul className='m-0 p-0'> {dots} </ul>
+      }}>
+      <ul className="m-0 p-0 "> {dots} </ul>
     </div>
   ),
 
-  
   customPaging: (i) => (
     <div className="flex flex-col items-center gap-2 cursor-pointer group">
-      <span className="text-[16px] font-medium text-gray-400 group-hover:text-black">
+     
+      <span className={`text-[16px] font-medium transition-all duration-300 ${
+        i === dotActive ? "" : "text-gray-400"
+      }`}>
         0{i + 1}
       </span>
-      <div className=" -mt-8 w-[3px] h-[30px] ml-7 bg-gray-200 group-hover:bg-black transition-all"></div>
+      
+      
+      <div className={`w-[3px] -mt-8 ml-7 h-[30px] transition-all duration-300 ${
+        i === dotActive ? "bg-black" : "bg-gray-200"
+      }`}></div>
     </div>
   ),
-
 
   };
 
